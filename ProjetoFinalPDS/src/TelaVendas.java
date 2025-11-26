@@ -6,12 +6,14 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.JLabel;
+import java.awt.Font;
 
 public class TelaVendas extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTable table;
+	private JLabel lblNewLabel;
 
 	/**
 	 * Launch the application.
@@ -40,19 +42,10 @@ public class TelaVendas extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 67, 844, 346);
-		contentPane.add(scrollPane);
-		
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"Verdura", "Frutas", "Roupas", "Componentes Eletronicos", "Utencilios Domesticos", "Mecanismos (Automotivos/etc)"
-			}
-		));
-		scrollPane.setViewportView(table);
+		lblNewLabel = new JLabel("Compra De Storagens");
+		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 41));
+		lblNewLabel.setBounds(199, 43, 384, 43);
+		contentPane.add(lblNewLabel);
 
 	}
 }

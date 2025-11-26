@@ -6,6 +6,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.Font;
+import javax.swing.JButton;
 
 public class TelaCompras extends JFrame {
 
@@ -32,7 +34,7 @@ public class TelaCompras extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaCompras() {
-		setTitle("TelaCompra");
+		setTitle("TelaDeVendasCompraListar");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 717, 594);
 		contentPane = new JPanel();
@@ -40,14 +42,37 @@ public class TelaCompras extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Produtos:");
-		lblNewLabel.setBounds(92, 166, 61, 14);
+		JLabel lblNewLabel = new JLabel("Vender Storage:");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel.setBounds(135, 202, 105, 21);
 		contentPane.add(lblNewLabel);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"", "Verduras", "Frutas", "Utencilios Domesticos", "Mecanismos (Automotivos/etc)", "Componentes Eletronicos", "Roupas"}));
-		comboBox.setBounds(140, 162, 224, 22);
-		contentPane.add(comboBox);
+		JButton btnVender = new JButton("Vender");
+		btnVender.setBounds(328, 203, 89, 23);
+		contentPane.add(btnVender);
+		
+		JLabel lblNewLabel_1 = new JLabel("Comprar Storage:");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_1.setBounds(124, 294, 113, 21);
+		contentPane.add(lblNewLabel_1);
+		
+		JButton btnComprar = new JButton("Comprar");
+		btnComprar.setBounds(328, 295, 89, 23);
+		contentPane.add(btnComprar);
+		
+		JButton btnListar = new JButton("Listar");
+		btnListar.setBounds(328, 249, 89, 23);
+		contentPane.add(btnListar);
+		
+		JLabel lblNewLabel_2 = new JLabel("Listar Storagens:");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_2.setBounds(135, 246, 105, 24);
+		contentPane.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("Escolha a opção que deseja Realizar:");
+		lblNewLabel_3.setFont(new Font("Times New Roman", Font.ITALIC, 39));
+		lblNewLabel_3.setBounds(42, 88, 603, 73);
+		contentPane.add(lblNewLabel_3);
 
 	}
 }
