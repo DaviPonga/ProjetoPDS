@@ -79,16 +79,7 @@ public class TelaVendas extends JFrame {
 				"Preço"
 			};
 			
-			modelo = new DefaultTableModel(colunas, 0);
-			table = new JTable(modelo);
-			
-			JScrollPane scrollPane = new JScrollPane(table);
-			scrollPane.setBounds(43, 97, 788, 376);
-			contentPane.add(scrollPane);
-		}
-
-		public void adicionarLinha(Object[] dados) {
-			modelo.addRow(dados);
+		
 
 	}
 }

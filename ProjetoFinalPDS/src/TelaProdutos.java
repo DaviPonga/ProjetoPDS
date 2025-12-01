@@ -174,7 +174,7 @@ public class TelaProdutos extends JFrame {
 		        TelaVendas tela = new TelaVendas();
 		        tela.setVisible(true);
 		        
-		        tela.adicionarLinha(new Object[]{
+		        /*tela.adicionarLinha(new Object[]{
 		                nomeStorage,
 		                nomePortador,
 		                cpf,
@@ -183,7 +183,7 @@ public class TelaProdutos extends JFrame {
 		                tamanho,
 		                periodo,
 		                preco
-		        });
+		        });*/
 
 		        dispose();
 			}
