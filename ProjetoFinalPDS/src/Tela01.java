@@ -9,7 +9,10 @@ import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JMenu;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Tela01 extends JFrame {
 
@@ -41,6 +44,20 @@ public class Tela01 extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton btnEntrar = new JButton("Entrar");
+		btnEntrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String usuario = tfUsuario.getText();
+				String senha = tfSenha.getText();
+				
+				if(usuario.equals("admin") && senha.equals("123")) {
+					new TelaCompras().setVisible(true);
+					dispose();
+				} else {
+					JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos!");
+				}
+			}
+		});
 		btnEntrar.setBounds(228, 425, 244, 29);
 		contentPane.add(btnEntrar);
 		

@@ -11,6 +11,8 @@ import java.awt.Font;
 import javax.swing.JRadioButton;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaProdutos extends JFrame {
 
@@ -137,6 +139,57 @@ public class TelaProdutos extends JFrame {
 		lblNewLabel_8.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		lblNewLabel_8.setBounds(498, 456, 165, 20);
 		contentPane.add(lblNewLabel_8);
+		
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				 new TelaCompras().setVisible(true);
+			        dispose();  
+			}
+		});
+		btnVoltar.setBounds(609, 11, 89, 23);
+		contentPane.add(btnVoltar);
+		
+		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String nomeStorage = tfNomeStorage.getText();
+		        String nomePortador = tfNomePortador.getText();
+		        String cpf = tfCpf.getText();
+
+		        String itens = "";
+		        if (chckbxUtencilios.isSelected()) itens += "Utensílios ";
+		        if (chckbxEletronicos.isSelected()) itens += "Eletrônicos ";
+		        if (chckbxDiversos.isSelected()) itens += "Diversos ";
+
+		        String origem = "";
+		        if (rdbtnAmerica.isSelected()) origem = "América";
+		        if (rdbtnEuropa.isSelected()) origem = "Europa";
+
+		        String tamanho = comboBox.getSelectedItem().toString();
+		        String periodo = comboBox_1.getSelectedItem().toString();
+		        String preco = txtR.getText();
+		        
+		        TelaVendas tela = new TelaVendas();
+		        tela.setVisible(true);
+		        
+		        tela.adicionarLinha(new Object[]{
+		                nomeStorage,
+		                nomePortador,
+		                cpf,
+		                itens,
+		                origem,
+		                tamanho,
+		                periodo,
+		                preco
+		        });
+
+		        dispose();
+			}
+		});
+		btnCadastrar.setBounds(251, 487, 89, 23);
+		contentPane.add(btnCadastrar);
 
 	}
 }

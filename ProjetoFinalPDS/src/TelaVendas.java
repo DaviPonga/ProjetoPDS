@@ -8,12 +8,16 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JLabel;
 import java.awt.Font;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaVendas extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JLabel lblNewLabel;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -46,6 +50,45 @@ public class TelaVendas extends JFrame {
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 41));
 		lblNewLabel.setBounds(199, 43, 384, 43);
 		contentPane.add(lblNewLabel);
+		
+		JButton btnVoltar1 = new JButton("Voltar");
+		btnVoltar1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				 new TelaCompras().setVisible(true);
+			        dispose();  
+			}
+		});
+		btnVoltar1.setBounds(765, 11, 89, 23);
+		contentPane.add(btnVoltar1);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(43, 97, 788, 376);
+		contentPane.add(scrollPane);
+		
+		table = new JTable();
+		scrollPane.setViewportView(table);
+		
+		String[] colunas = {
+				"Nome Storage",
+				"Portador",
+				"CPF",
+				"Itens",
+				"Origem",
+				"Tamanho",
+				"Período",
+				"Preço"
+			};
+			
+			modelo = new DefaultTableModel(colunas, 0);
+			table = new JTable(modelo);
+			
+			JScrollPane scrollPane = new JScrollPane(table);
+			scrollPane.setBounds(43, 97, 788, 376);
+			contentPane.add(scrollPane);
+		}
+
+		public void adicionarLinha(Object[] dados) {
+			modelo.addRow(dados);
 
 	}
 }

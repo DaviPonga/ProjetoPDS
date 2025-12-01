@@ -8,6 +8,8 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.Font;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaCompras extends JFrame {
 
@@ -48,8 +50,15 @@ public class TelaCompras extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JButton btnVender = new JButton("Vender");
+		btnVender.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new TelaProdutos().setVisible(true);
+	            dispose();
+			}
+		});
 		btnVender.setBounds(328, 203, 89, 23);
 		contentPane.add(btnVender);
+		
 		
 		JLabel lblNewLabel_1 = new JLabel("Comprar Storage:");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -57,17 +66,14 @@ public class TelaCompras extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		JButton btnComprar = new JButton("Comprar");
+		btnComprar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new TelaVendas().setVisible(true);
+	            dispose();
+			}
+		});
 		btnComprar.setBounds(328, 295, 89, 23);
 		contentPane.add(btnComprar);
-		
-		JButton btnListar = new JButton("Listar");
-		btnListar.setBounds(328, 249, 89, 23);
-		contentPane.add(btnListar);
-		
-		JLabel lblNewLabel_2 = new JLabel("Listar Storagens:");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_2.setBounds(135, 246, 105, 24);
-		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("Escolha a opção que deseja Realizar:");
 		lblNewLabel_3.setFont(new Font("Times New Roman", Font.ITALIC, 39));
