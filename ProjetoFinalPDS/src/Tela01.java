@@ -80,6 +80,11 @@ public class Tela01 extends JFrame {
 		lblNewLabel_1.setFont(new Font("Verdana", Font.BOLD, 11));
 		lblNewLabel_1.setBounds(102, 259, 61, 20);
 		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("Faça seu Login:");
+		lblNewLabel_2.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_2.setBounds(251, 110, 193, 46);
+		contentPane.add(lblNewLabel_2);
 
 	}
 }

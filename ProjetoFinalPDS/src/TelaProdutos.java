@@ -10,6 +10,7 @@ import javax.swing.JCheckBox;
 import java.awt.Font;
 import javax.swing.JRadioButton;
 import javax.swing.JComboBox;
+import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -111,6 +112,11 @@ public class TelaProdutos extends JFrame {
 		rdbtnEuropa.setBounds(416, 295, 109, 23);
 		contentPane.add(rdbtnEuropa);
 		
+	    ButtonGroup grupoOrigem = new ButtonGroup();
+        grupoOrigem.add(rdbtnAmerica);
+        grupoOrigem.add(rdbtnEuropa);
+        //garante que só um botão do grupo pode estar selecionado ao mesmo tempo.
+		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"", "Pequeno (1m²)", "Médio (3m²)", "Grande (5m²)", "Extra Grande (10m²)"}));
 		comboBox.setBounds(221, 347, 132, 22);
@@ -162,30 +168,38 @@ public class TelaProdutos extends JFrame {
 		        if (chckbxUtencilios.isSelected()) itens += "Utensílios ";
 		        if (chckbxEletronicos.isSelected()) itens += "Eletrônicos ";
 		        if (chckbxDiversos.isSelected()) itens += "Diversos ";
-
+		        
+		        if (!itens.isEmpty()) {
+		            itens = itens.substring(0, itens.length() - 2);
+		        }
+		        //Utensílios, Diversos Irá ficar assim
+		        
 		        String origem = "";
 		        if (rdbtnAmerica.isSelected()) origem = "América";
 		        if (rdbtnEuropa.isSelected()) origem = "Europa";
+		        
 
 		        String tamanho = comboBox.getSelectedItem().toString();
 		        String periodo = comboBox_1.getSelectedItem().toString();
 		        String preco = txtR.getText();
 		        
-		        TelaVendas tela = new TelaVendas();
-		        tela.setVisible(true);
 		        
-		        /*tela.adicionarLinha(new Object[]{
-		                nomeStorage,
-		                nomePortador,
-		                cpf,
-		                itens,
-		                origem,
-		                tamanho,
-		                periodo,
-		                preco
-		        });*/
-
-		        dispose();
+		        Object[] novaLinha = new Object[] {
+		        	    nomeStorage,
+		        	    nomePortador,
+		        	    cpf,
+		        	    itens,
+		        	    origem,
+		        	    tamanho,
+		        	    periodo,
+		        	    preco
+		        	};
+		        
+		        	ListaStoragem.lista.add(novaLinha);
+	 
+		        	TelaVendas tela = new TelaVendas();
+		        	tela.setVisible(true);
+		        	dispose();
 			}
 		});
 		btnCadastrar.setBounds(251, 487, 89, 23);

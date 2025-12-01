@@ -18,6 +18,7 @@ public class TelaVendas extends JFrame {
 	private JPanel contentPane;
 	private JLabel lblNewLabel;
 	private JTable table;
+	private DefaultTableModel tableModel;
 
 	/**
 	 * Launch the application.
@@ -79,7 +80,34 @@ public class TelaVendas extends JFrame {
 				"Preço"
 			};
 			
-		
+		tableModel = new DefaultTableModel(colunas, 0);
+        table.setModel(tableModel);
+        
+        JButton btnComprar = new JButton("Comprar");
+        btnComprar.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		
+        		// pega a linha selecionada
+        		
+        		int linha = table.getSelectedRow();
+
+                String nomeStorage = table.getValueAt(linha, 0).toString();
+
+                javax.swing.JOptionPane.showMessageDialog(null,
+                    "Você comprou o storage: " + nomeStorage);
+            }
+        });
+        btnComprar.setBounds(395, 473, 89, 23);
+        contentPane.add(btnComprar);
+        
+        //carrega os dados da lista
+        for (Object[] linha : ListaStoragem.lista) {
+            tableModel.addRow(linha);
+        }
+    }
+
+    public void adicionarLinha(Object[] dados) {
+        tableModel.addRow(dados);
 
 	}
 }
