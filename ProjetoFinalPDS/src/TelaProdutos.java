@@ -202,7 +202,7 @@ public class TelaProdutos extends JFrame {
 		        	dispose();
 			}
 		});
-		btnCadastrar.setBounds(251, 487, 89, 23);
+		btnCadastrar.setBounds(251, 487, 102, 23);
 		contentPane.add(btnCadastrar);
 
 	}
